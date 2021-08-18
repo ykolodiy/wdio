@@ -1,0 +1,23 @@
+  // get app name from SF
+// curl -u "user:4key" --location \
+// --request GET 'https://api.us-west-1.saucelabs.com/v1/storage/files' | jq
+  
+  // https://saucelabs.com/platform/platform-configurator
+    capabilities: [{
+        browserName : '',
+        appiumVersion : '1.20.0',
+        deviceName : 'iPhone X Simulator',
+        deviceOrientation : 'portrait',
+        platformVersion : '14.5',
+        platformName : 'iOS',
+        // get sf image zip or apk https://sfdc.co/salesforce-mobile-app-ios-simulator
+        // upload zip or apk to  https://app.saucelabs.com/live/app-testing (zip for ios, apk for android)
+        // settings get full file name
+        app : 'storage:filename=SalesforceApp-Simulator-230.000-iOS.zip',
+    }],
+
+    region: 'us',
+
+    services: base.config.services.concat([
+        ['sauce'],
+    ]),
